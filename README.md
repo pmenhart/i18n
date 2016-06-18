@@ -17,46 +17,21 @@ All actions with Unicode were described in the [Unicode Standards](http://www.un
 ICU Documentation [API Reference](http://icu-project.org/apiref/icu4c/).
 Erlang NIF [erl_nif API](http://www.erlang.org/doc/man/erl_nif.html).
 
-
+THIS IS A FORK MODIFIED FOR COMPILING ICU FROM SOURCES AND LINKING IT AS STATIC LIBRARY. REBAR3 ENABLED.
 
 
 Installation
 ============
 
-__i18n__ is based on [ICU 4.2 or newer](http://icu-project.org/), which you 
-need to have installed:
+You need to have rebar3 inatalled in location in PATH.
 
-`brew install icu4c` with Homebrew on OSX;
-
-`port install icu` with MacPorts on OSX;
-
-`apt-get install libicu42 libicu-dev` on Ubuntu 10.10;
-
-`apt-get install libicu44 libicu-dev` on Ubuntu 11.10.
-
-Also you need to have gcc for compilation :).
+`rebar3 compile`
 
 
+Run
+============
 
-Enviroment Variables
-====================
-
-You can configure the compilation process with environment variables.
-This application uses rebar for building, it also uses 
-[this patch](https://github.com/basho/rebar/pull/129) for checking env vars.
-
-
-
-Try it
-======
-
-Run in the terminal:
-
-```
-./start-dev.sh
-```
-
-
+`erl -pa _build/default/lib/i18n/ebin/`
 
 
 Motivation
