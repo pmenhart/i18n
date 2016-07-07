@@ -105,32 +105,20 @@ try_max_or_0(List) ->
         0
     end.
 
+
 init() ->
-    i18n:start(),
-    Library = ?MODULE_STRING,
-
-    Nif = ?I18N_NIF_PATH(Library),
-    Libs     = filelib:wildcard(Nif ++ "*.{so,dll}"),
-    NoIdLibs = filelib:wildcard(Nif ++ ".{so,dll}"),
-
-    if
-        NoIdLibs =:= Libs ->
-            erlang:load_nif(Nif, 0);
-
-        true ->
-            load_latest_library(Library, Nif, Libs)
-        end.
-
-
-load_latest_library(Library, Nif, Libs) ->
-    case try_max_or_0(
-            lists:map(fun get_timestamp_from_filename/1, Libs)) of
-    0 ->
-        error_logger:info_msg("Library ~ts is not found.~n", [Library]);
-    Version ->
-        error_logger:info_msg("Load library ~ts with version ~b.~n", [Library, Version]),
-        erlang:load_nif(Nif ++ "." ++ integer_to_list(Version), 0)
-    end.
+    SoName = case code:priv_dir(?MODULE) of
+                 {error, bad_name} ->
+                     case code:which(?MODULE) of
+                         Filename when is_list(Filename) ->
+                             filename:join([filename:dirname(Filename),"../priv", "i18n_nif"]);
+                         _ ->
+                             filename:join("../priv", "i18n_nif")
+                     end;
+                 Dir ->
+                     filename:join(Dir, "i18n_nif")
+             end,
+    erlang:load_nif(SoName, application:get_all_env(i18n)).
 
 
 i18n_info() ->
