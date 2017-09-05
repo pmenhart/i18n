@@ -62,6 +62,6 @@ case "$1" in
         export CXXFLAGS="-DU_DISABLE_RENAMING=1 -DU_USING_ICU_NAMESPACE=0 -std=gnu++0x -DU_CHARSET_IS_UTF8=1 -DU_GNUC_UTF16_STRING=1 -DU_HAVE_CHAR16_T=1 -DUCHAR_TYPE=char16_t -Wall --std=c++0x -DU_STATIC_IMPLEMENTATION"
         export CPPFLAGS="-DU_DISABLE_RENAMING=1 -DU_USING_ICU_NAMESPACE=0 -DU_CHARSET_IS_UTF8=1 -DU_STATIC_IMPLEMENTATION"
 	export
-        (cd icu4c/source && ./runConfigureICU Linux --prefix=`pwd`istalli18n --enable-static --disable-shared --disable-renaming && $MAKE -j 3 && $MAKE install)
+        (cd icu4c/icu4c/source && ./runConfigureICU Linux --prefix=`pwd`istalli18n --enable-static --disable-shared --disable-renaming && $MAKE -j 3 && $MAKE install)
         ;;
 esac
