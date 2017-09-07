@@ -33,8 +33,8 @@
 #include "i18n_locale.h"
 #include "i18n_date.h"
 #include "i18n_trans.h"
-#include "unicode/uversion.h"
-#include "unicode/uchar.h"
+#include <unicode/uversion.h>
+#include <unicode/uchar.h>
 
 
 static ErlNifEnv * global_atom_env;

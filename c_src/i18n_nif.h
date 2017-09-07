@@ -57,55 +57,55 @@
 #endif
 
 
-#include "erl_nif.h"
+#include <erl_nif.h>
 
 extern "C" {
 #include "cloner.h"
 }
 
 #if I18N_LOCALE
-#include "unicode/uloc.h"
+#include <unicode/uloc.h>
 #endif
 
-#include "unicode/ustring.h"
-//#include "unicode/uchar.h"
+#include <unicode/ustring.h>
+#include <unicode/uchar.h>
 
 #if I18N_STRING
-#include "unicode/ubrk.h"
-#include "unicode/unorm.h"
+#include <unicode/ubrk.h>
+#include <unicode/unorm.h>
 #endif
 
 #if I18N_COLLATION
-#include "unicode/ucol.h"
-#include "unicode/coll.h"
+#include <unicode/ucol.h>
+#include <unicode/coll.h>
 #endif
 
 #if I18N_SEARCH
-#include "unicode/usearch.h"
+#include <unicode/usearch.h>
 #endif
 
 #if I18N_MESSAGE
-#include "unicode/umsg.h"
-#include "unicode/msgfmt.h"
-#include "unicode/messagepattern.h"
+#include <unicode/umsg.h>
+#include <unicode/msgfmt.h>
+#include <unicode/messagepattern.h>
 #endif
 
-#include "unicode/utypes.h"
+#include <unicode/utypes.h>
 
 #if I18N_REGEX
-#include "unicode/regex.h"
+#include <unicode/regex.h>
 #endif
 
 #if I18N_DATE
-#include "unicode/ucal.h"
-#include "unicode/calendar.h"
-#include "unicode/timezone.h"
+#include <unicode/ucal.h>
+#include <unicode/calendar.h>
+#include <unicode/timezone.h>
 #endif
 
 #if I18N_TRANS
-#include "unicode/utrans.h"
-#include "unicode/translit.h"
-#include "unicode/uenum.h"
+#include <unicode/utrans.h>
+#include <unicode/translit.h>
+#include <unicode/uenum.h>
 #endif
 
 #include <string.h>

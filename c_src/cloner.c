@@ -23,7 +23,7 @@
  *  =====================================================================
  */
 
-#include "erl_nif.h"
+#include <erl_nif.h>
 #include "cloner.h"
 #include <stdlib.h>
 

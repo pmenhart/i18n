@@ -1,1 +1,0 @@
-#define SKIP_MESSAGE_PATTERN 1
